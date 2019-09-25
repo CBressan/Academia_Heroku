@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+	<title>Academia</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<table data-vertable="ver1">
+						<thead>
+							<tr class="row100 head">
+
+            <th class="column100 column1" data-column="column1">Alunos</th>
+                                <th class="column100 column1" data-column="column"></th>
+                                <th class="column100 column3" data-column="column"> <a href="{% url 'create_account' %}" style="color: #99ffcc"> Novo aluno </a></th>
+                                <th class="column100 column4" data-column="column"><a href="{% url 'logout'%}" style="color: #99ffcc"> Sair </a></th>
+
+                            </tr>
+						</thead>
+                        {% for pessoa in pessoa  %}
+                        <tr class="row100">
+								<td class="column100 column1" data-column="column1">
+            <a href="{% url 'associate' pessoa.id %}"> {{pessoa.nome}} {{pessoa.sobrenome}} </a></td>
+								<td class="column100 column2" data-column="column2">
+            <a href="{% url 'user_update' pessoa.id%}">Alterar</a>
+                                </td>
+						</tr>
+						{% endfor %}
+</table>
+
+                        </tr> </div></div></div></div>
+
+    <a href="{% url 'create_account' %}"> Novo aluno </a>
+    <a href="{% url 'logout'%}"> Sair </a>
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+</body>
+</html>

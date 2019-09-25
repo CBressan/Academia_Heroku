@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <title>Cadastro de usuários com email</title>
+</head>
+<body>
+    <h1>Registro Efetuado</h1>
+    <p>Para criar outra conta <a href="{% url 'create_account' %}"> Clique aqui</a>  </p>
+       <button> <a href="{% url 'user_list' %}"style="color: #000000">Voltar para a lista</a></button>
+</body>
+</html>

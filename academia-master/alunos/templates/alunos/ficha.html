@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha cadastral</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<table class="table">
+    <tr><td class="esquerda">Nome</td><td class="direita">{{pessoa.nome}}</td></tr>
+    <tr><td class="esquerda">Email</td><td class="direita">{{pessoa.email}}</td></tr>
+    <tr><td class="esquerda">CPF</td><td class="direita">{{pessoa.cpf}}</td></tr>
+    <tr><td class="esquerda">Data de nascimento</td><td class="direita">{{pessoa.data_de_nascimento}}</td></tr>
+    <tr><td class="esquerda">Endereço</td><td class="direita">{{pessoa.endereço}}</td></tr>
+    <tr><td class="esquerda">Telefone</td><td class="direita">{{pessoa.telefone}}</td></tr>
+    <tr><td class="esquerda">Sexo</td><td class="direita">{{pessoa.sexo}}</td></tr>
+    <tr><td class="esquerda">Altura</td><td class="direita">{{pessoa.altura}}</td></tr>
+    <tr><td class="esquerda">Peso Inicial</td><td class="direita">{{pessoa.peso_inicial}}</td></tr>
+    <tr><td class="esquerda">Peso Atual</td><td class="direita">{{pessoa.peso_atual}}</td></tr>
+    <tr><td class="esquerda">Peso Objetivo</td><td class="direita">{{pessoa.peso_objetivo}}</td></tr>
+</table>
+
+<button type="button" class="btn btn-primary"><a href="{% url 'logout'%}" style="color: #ffffff">Sair</a></button>
+
+{% if user.is_staff %}
+    <button type="button" class="btn btn-primary"><a href="{% url 'user_update' pessoa.id%}" style="color: #ffffff">Alterar</a></button>
+    <button type="button" class="btn btn-primary"><a href="{% url 'user_list' %}"style="color: #ffffff">Voltar</a></button>
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

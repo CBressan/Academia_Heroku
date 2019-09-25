@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <title>Cadastro de alunos</title>
+</head>
+<body>
+    <h1>Cadastro de alunos</h1>
+    <p>Digite os dados solicitados abaixo:</p>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Criar minha conta"></p>
+            <button> <a href="{% url 'user_list' %}"style="color: #000000">Voltar</a></button>
+    </form>
+</body>
+</html>
